@@ -17,6 +17,12 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
+                        "allowedCommonJsDependencies": [
+                            "lodash",
+                            "qrcode",
+                            "lodash",
+                            "style-dictionary"
+                        ],
                         "outputPath": "dist/sakai-ng",
                         "index": "src/index.html",
                         "main": "src/main.ts",
@@ -30,6 +36,7 @@
                             "src/assets"
                         ],
                         "styles": [
+                            "node_modules/@aws-amplify/ui-angular/theme.css",
                             "src/styles.scss"
                         ],
                         "scripts": []
@@ -39,7 +46,7 @@
                             "budgets": [
                                 {
                                     "type": "initial",
-                                    "maximumWarning": "1mb",
+                                    "maximumWarning": "2mb",
                                     "maximumError": "5mb"
                                 },
                                 {
@@ -56,7 +63,9 @@
                             "vendorChunk": true,
                             "extractLicenses": false,
                             "sourceMap": true,
-                            "namedChunks": true
+                            "namedChunks": true,
+                            "aot": false,
+                            "progress": false
                         }
                     },
                     "defaultConfiguration": "production"
@@ -101,5 +110,8 @@
                 }
             }
         }
+    },
+    "cli": {
+      "analytics": false
     }
 }

@@ -1,0 +1,45 @@
+<div class="grid">
+    <div class="col-12 xl:col-6">
+        <div class="card">
+            <h5>Before</h5>
+            <button type="button" pButton label="Expand" (click)="display=true"></button>
+
+            <p-editor [(ngModel)]="textInput"  (onTextChange)="onEditorTextChange()" [style]="{ height: '380px' }"></p-editor>
+            <button pButton pRipple label="Submit"></button>
+        </div>
+
+    </div>
+    <div class="col-12 xl:col-6">
+        <div class="card">
+            <h5>After</h5>
+            <p-editor [(ngModel)]="textOutput" [style]="{ height: '380px' }"></p-editor>
+        </div>
+    </div>
+    <div class="col-12 xl:col-12">
+        <div class="card">
+            <h5>Prompt</h5>
+            <p-editor [(ngModel)]="textPrompt" [style]="{ height: '200px' }"></p-editor>
+        </div>
+    </div>
+
+
+    <div class="col-12 lg:col-12">
+        <h5>Textarea</h5>
+        <textarea [(ngModel)]="textAreaContent" rows="5" placeholder="Your Message" pInputTextarea></textarea>
+    </div>
+
+
+
+</div>
+
+<p-dialog [(visible)]="display" [style]="{width: '100vw', height: '100vh'}" [modal]="true" [baseZIndex]="10000">
+    <ng-template pTemplate="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h5>Your Editor Title</h5>
+            <button type="button" pButton icon="pi pi-times" (click)="display=false"></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+        <p-editor [(ngModel)]="textInput" [style]="{height: 'calc(100vh - 3rem)'}"></p-editor>
+    </ng-template>
+</p-dialog>
