@@ -10,24 +10,7 @@ import { ProductService } from 'src/app/demo/service/product.service';
 })
 export class CrudComponent implements OnInit {
 
-    projetoSelecionado: any = null;
-
-    projetos: any[] = [
-        {name: 'Projeto A', code: '1'},
-        {name: 'Projeto B', code: '2'},
-        {name: 'Projeto C', code: '3'},
-        {name: 'Projeto D', code: '4'},
-        {name: 'Projeto E', code: '5'}
-    ];
-
-    dropdownItems = [
-        { name: 'Administrador', code: 'a' },
-        { name: 'Desenvolvedor', code: 'd' }
-    ];
-
-    tarefaDialog: boolean = false;
-
-    impedimentoDialog: boolean = false;
+    productDialog: boolean = false;
 
     deleteProductDialog: boolean = false;
 
@@ -61,23 +44,16 @@ export class CrudComponent implements OnInit {
         ];
 
         this.statuses = [
-            { label: 'PENDENTE', value: 'pendente' },
-            { label: 'DESENVOLVIMENTO', value: 'desenvolvimento' },
-            { label: 'CONCLUIDO', value: 'concluido' },
-            { label: 'AGUARDANDO', value: 'aguardando' }
+            { label: 'INSTOCK', value: 'instock' },
+            { label: 'LOWSTOCK', value: 'lowstock' },
+            { label: 'OUTOFSTOCK', value: 'outofstock' }
         ];
-        
     }
 
-    openTarefa() {
+    openNew() {
         this.product = {};
         this.submitted = false;
-        this.tarefaDialog = true;
-    }
-    openImpedimento() {
-        this.product = {};
-        this.submitted = false;
-        this.impedimentoDialog = true;
+        this.productDialog = true;
     }
 
     deleteSelectedProducts() {
@@ -86,7 +62,7 @@ export class CrudComponent implements OnInit {
 
     editProduct(product: Product) {
         this.product = { ...product };
-        this.tarefaDialog = true;
+        this.productDialog = true;
     }
 
     deleteProduct(product: Product) {
@@ -109,7 +85,7 @@ export class CrudComponent implements OnInit {
     }
 
     hideDialog() {
-        this.tarefaDialog = false;
+        this.productDialog = false;
         this.submitted = false;
     }
 
@@ -133,7 +109,7 @@ export class CrudComponent implements OnInit {
             }
 
             this.products = [...this.products];
-            this.tarefaDialog = false;
+            this.productDialog = false;
             this.product = {};
         }
     }

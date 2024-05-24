@@ -16,7 +16,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
-import { InputMaskModule } from 'primeng/inputmask';
 
 @NgModule({
     imports: [
@@ -35,8 +34,7 @@ import { InputMaskModule } from 'primeng/inputmask';
         DropdownModule,
         RadioButtonModule,
         InputNumberModule,
-        DialogModule,
-        InputMaskModule
+        DialogModule
     ],
     declarations: [CrudComponent]
 })
